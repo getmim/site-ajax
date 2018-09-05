@@ -4,15 +4,25 @@ $(function(){
 
     let noop = function(){};
 
+    let device = 'h';
+    if(screen.width >= 992)
+        device = 'd';
+    else if(screen.width >= 768)
+        device = 't'
+
     $('.site-ajax').each(function(i,e){
         let $e = $(e);
         let target = window.SITE_AJAX.route.replace('#NAME#', $e.data('name'));
         let cb = $e.data('callback') || noop;
         let placement = $e.data('placement');
+        let devices = $e.data('device') || 'dth';
+
+        if(!~devices.indexOf(device))
+            return;
 
         if(typeof cb === 'string')
             cb = window[cb];
-        
+
         $.get(target, function(res){
             if(!res)
                 return cb();

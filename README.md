@@ -54,6 +54,7 @@ Buatkan html element untuk menampung kontent ajax:
     data-name="post-trending"
     data-placement="replace"
     data-callback="callbackFn"
+    data-device="dth"
 ></div>
 ```
 
@@ -68,6 +69,11 @@ default adalah `append`. Nilai yang diterima adalah:
 
 Atribute `data-callback` adalah fungsi javascript yang akan di panggil ketika konten ajax berhasil ditempatkan
 dengan parameter pertama adalah elemen yang ditambahkan tersebut.
+
+Atribute `data-device` menentukan device type dimana element ini diproses berdasakan screensize. Nilai dari
+atribut ini menerima `d` untuk `desktop`, `t` untuk tablet, dan `h` untuk handphone. Nilai bisa salah satu dari
+nilai yang diterima, atau kombinasi ketiganya. Jika tidak di set, maka nilai `dth` akan digunakan. Nilai `dt` berarti
+konten diproses hanya pada `desktop` dan `tablet`, sementara `th` akan diproses konten pada `tablet` dan `handphone`.
 
 ## Penting
 
